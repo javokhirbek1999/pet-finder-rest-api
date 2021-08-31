@@ -18,6 +18,16 @@ from . import serializers
 from .utils import Util
 
 
+class RegisterSuperuser(viewsets.ModelViewSet):
+
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = serializers.SuperuserSerializer
+    queryset = models.User.objects.filter(is_superuser=True)
+
+    def get_object(self, **kwargs):
+        return models.User.objects.get(username=self.kwargs.get('pk'))
+
+
 class RegisterUser(viewsets.ModelViewSet):
 
     permission_classes = (permissions.AllowAny,)
@@ -61,8 +71,10 @@ class VerifyEmail(views.APIView):
             if not user.is_verified:
                 user.is_verified = True
                 user.is_active = True
-                user.save()    
-            return Response({'status':'Email is successfully activated'},status=status.HTTP_200_OK)
+                user.save()
+                return Response({'status':'Email is successfully verified'},status=status.HTTP_200_OK)
+            else:    
+                return Response({'status':'Email is already verified'}, status=status.HTTP_200_OK)
         except jwt.ExpiredSignatureError:
             return Response({'status':'Your token is expired'}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.DecodeError:

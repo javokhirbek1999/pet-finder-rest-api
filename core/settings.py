@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # apps
     'app',
     'authentication',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -182,3 +183,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

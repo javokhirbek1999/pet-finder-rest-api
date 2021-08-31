@@ -7,16 +7,39 @@ from rest_framework.exceptions import AuthenticationFailed
 
 from . models import User
 
+
+class SuperuserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','email','username','name','password')
+        extra_kwargs = {
+            'password': {
+                'write_only': True,
+                'style': {
+                    'input_type': 'password',
+                },
+            },
+        }
+
+    def create(self, validated_data):
+        instance = User.objects.create_superuser(**validated_data)
+        instance.save()
+        return instance
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'username', 'name', 'password')
+        fields = ('id', 'email', 'username', 'name', 'password','is_superuser')
         extra_kwargs = {
             'password': {
                 'write_only': True,
                 'style': {
                     'input_type':'password',
                 },
+            },
+            'is_superuser': {
+                'read_only': True,
             },
         }
     
@@ -27,7 +50,6 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
-
 
 class EmailVerifySerializer(serializers.ModelSerializer):
 
