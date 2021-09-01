@@ -39,7 +39,7 @@
   <h3 align="center">Pet Finder RESTful API</h3>
 
   <p align="center">
-    Share books with others :)
+    Adopt to save lives :)
     <br />
     <a href="https://github.com/javokhirbek1999/pet-finder-rest-api/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
@@ -189,6 +189,6 @@ Project Link: [https://github.com/javokhirbek1999/book-sharing-system](https://g
 [issues-shield]: https://img.shields.io/github/issues/javokhirbek1999/pet-finder-rest-api.svg?style=for-the-badge
 [issues-url]: https://github.com/javokhirbek1999/pet-finder-rest-api/issues
 [license-shield]: https://img.shields.io/github/license/javokhirbek1999/pet-finder-rest-api.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[license-url]: https://github.com/javokhirbek1999/pet-finder-rest-api/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/javokhirbek-kh/
