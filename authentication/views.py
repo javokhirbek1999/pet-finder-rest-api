@@ -16,7 +16,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from . import models
 from . import serializers
 from .utils import Util
-
+from .permissions import IsOwnerOrReadOnly
 
 class RegisterSuperuser(viewsets.ModelViewSet):
 
@@ -30,7 +30,7 @@ class RegisterSuperuser(viewsets.ModelViewSet):
 
 class RegisterUser(viewsets.ModelViewSet):
 
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (IsOwnerOrReadOnly,)
     serializer_class = serializers.UserSerializer
     queryset = models.User.objects.all()
 

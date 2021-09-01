@@ -31,6 +31,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/', include('authentication.urls', namespace='authentication')),
     path('api/', include('app.urls', namespace='pets')),
+    path('api/profiles/', include('profiles.urls', namespace='profiles')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 

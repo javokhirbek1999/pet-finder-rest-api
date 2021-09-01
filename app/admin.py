@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Pet, Category
+from .models import Pet, Category, Species
 
 @admin.register(Pet)
 class AdminPet(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class AdminPet(admin.ModelAdmin):
     prepopulated_fields = {'slug':('title',)}
 
 admin.site.register(Category)
+admin.site.register(Species)
